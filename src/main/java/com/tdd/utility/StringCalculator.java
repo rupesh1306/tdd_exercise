@@ -17,7 +17,7 @@ public class StringCalculator {
 	 * @return sum of integer
 	 */
 	public int add(final String numberString) {
-		return -1;
+		return 0;
 	}
 
 }

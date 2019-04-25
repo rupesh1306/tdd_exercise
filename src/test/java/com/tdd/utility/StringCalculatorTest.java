@@ -45,4 +45,12 @@ public class StringCalculatorTest {
 	public void testAdd_twoNumberCommaSaperatedInput() {
 		assertEquals(4,stringCalculator.add("1,3"));
 	}
+	
+	/**
+	 *This will test add utility with two number string. 
+	 */
+	@Test
+	public void testAdd_nNumbersCommaSaperatedInput() {
+		assertEquals(9,stringCalculator.add("1,3,5"));
+	}
 }

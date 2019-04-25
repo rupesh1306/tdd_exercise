@@ -37,4 +37,12 @@ public class StringCalculatorTest {
 	public void testAdd_singleInput() {
 		assertEquals(1,stringCalculator.add("1"));
 	}
+	
+	/**
+	 *This will test add utility with two number string. 
+	 */
+	@Test
+	public void testAdd_twoNumberCommaSaperatedInput() {
+		assertEquals(4,stringCalculator.add("1,3"));
+	}
 }

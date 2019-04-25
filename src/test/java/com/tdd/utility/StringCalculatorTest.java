@@ -47,10 +47,18 @@ public class StringCalculatorTest {
 	}
 	
 	/**
-	 *This will test add utility with two number string. 
+	 *This will test add utility with N number string. 
 	 */
 	@Test
 	public void testAdd_nNumbersCommaSaperatedInput() {
 		assertEquals(9,stringCalculator.add("1,3,5"));
+	}
+	
+	/**
+	 *This will test add utility with two number string. 
+	 */
+	@Test
+	public void testAdd_nNumbersCommaAndLineCharacterSaperatedInput() {
+		assertEquals(9,stringCalculator.add("1\n3,5"));
 	}
 }

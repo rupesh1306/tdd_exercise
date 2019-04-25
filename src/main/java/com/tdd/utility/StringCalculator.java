@@ -17,7 +17,7 @@ public class StringCalculator {
 	 * @return sum of integer
 	 */
 	public int add(final String numberString) {
-		String[] splitNumberString = numberString.split(",");
+		String[] splitNumberString = numberString.split(",|\n");
 		int sum = -1;
 		if (numberString.isEmpty()) {
 			sum = 0;

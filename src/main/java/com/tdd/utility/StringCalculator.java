@@ -17,16 +17,46 @@ public class StringCalculator {
 	 * @return sum of integer
 	 */
 	public int add(final String numberString) {
-		String[] splitNumberString = numberString.split(",|\n");
+		
+		String delemeter=findDelimeter(numberString);
+		String numberStringInput = removeFirstLine(numberString);
+		String[] splitNumberString = numberStringInput.split(delemeter);
 		int sum = -1;
-		if (numberString.isEmpty()) {
+		if (numberStringInput.isEmpty()) {
 			sum = 0;
 		} else if (splitNumberString.length == 1) {
-			sum = Integer.parseInt(numberString);
+			sum = Integer.parseInt(numberStringInput);
 		} else {
 			sum = getSum(splitNumberString);
 		}
 		return sum;
+	}
+	
+	/**
+	 * Removed first line from the parameter for processing.
+	 * @param numberString
+	 * @return
+	 */
+	private String removeFirstLine(final String numberString) {
+		String returnWithoutFirstLine=numberString;
+		if(numberString.startsWith("//")) {
+			returnWithoutFirstLine=numberString.substring(4);
+		}
+		return returnWithoutFirstLine;
+	}
+
+	/** 
+	 * Find delemeter if it is provided in the string.
+	 * @param numberString
+	 * @return
+	 */
+	private String findDelimeter(final String numberString) {
+		String delimeter=",|\n";
+		if(numberString.startsWith("//")) {
+			//Extracting delimeter
+			delimeter=numberString.substring(2,3);
+		}
+		return delimeter;
 	}
 	
 	/**
@@ -41,4 +71,6 @@ public class StringCalculator {
 		}
 		return sum;
 	}
+	
+	
 }

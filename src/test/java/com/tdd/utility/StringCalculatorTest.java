@@ -61,4 +61,12 @@ public class StringCalculatorTest {
 	public void testAdd_nNumbersCommaAndLineCharacterSaperatedInput() {
 		assertEquals(9,stringCalculator.add("1\n3,5"));
 	}
+	
+	/**
+	 *This will test add utility with //[delimiter]\n[numbers…]. 
+	 */
+	@Test
+	public void testAdd_nNumbersWithDefaultInput() {
+		assertEquals(9,stringCalculator.add("//;\n1;3;5"));
+	}
 }

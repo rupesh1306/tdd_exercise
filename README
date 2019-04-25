@@ -1,1 +1,10 @@
-This project is for developing TDD approach for calculating number.
+Name: tdd_excercise
+Description: This project is created to demonstrate the TDD example.
+
+Steps to run test case:
+	1.Import project in to eclipse.
+	2.Open StringCalculatorTest.java from folder <Project-root-dir>\src\test\java\com\tdd\utility
+	3.Run this as a JUnit test and verify test cases.
+	
+	
+------------------------------------------------------------------------------------------------------

@@ -89,7 +89,7 @@ public class StringCalculatorTest {
 	 * @throws Exception
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testAdd_negativeNumbersInput() throws Exception {
+	public void testAdd_negativeNumbersInput() throws IllegalArgumentException {
 		assertEquals(9, stringCalculator.add("//;\n1;-3;5"));
 	}
 	
@@ -100,7 +100,7 @@ public class StringCalculatorTest {
 	 */
 	@Test
 	public void testAdd_nNumbersWithWithGreaterThanThousandInput() throws IllegalArgumentException {
-		assertEquals(9, stringCalculator.add("//;\n1001;3;5"));
+		assertEquals(8, stringCalculator.add("//;\n1001;3;5"));
 	}
 	
 }

@@ -78,7 +78,8 @@ public class StringCalculator {
 			if (checkNegativeNumber(parsedInt)) {
 				negativeNumbers.append(parsedInt + " ");
 			} else {
-				sum += parsedInt;
+				//Ignoring numbers which are greater than 1000
+				sum += parsedInt <= 1000 ? parsedInt: 0;
 			}
 		}
 		if (negativeNumbers.length() > 0) {

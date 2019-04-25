@@ -92,4 +92,15 @@ public class StringCalculatorTest {
 	public void testAdd_negativeNumbersInput() throws Exception {
 		assertEquals(9, stringCalculator.add("//;\n1;-3;5"));
 	}
+	
+	/**
+	 * This will test add utility with test input more than thousand and would ignore it.
+	 * 
+	 * @throws Exception
+	 */
+	@Test
+	public void testAdd_nNumbersWithWithGreaterThanThousandInput() throws IllegalArgumentException {
+		assertEquals(9, stringCalculator.add("//;\n1001;3;5"));
+	}
+	
 }

@@ -17,11 +17,14 @@ public class StringCalculator {
 	 * @return sum of integer
 	 */
 	public int add(final String numberString) {
+		String[] splitNumberString = numberString.split(",");
 		int sum = -1;
-		if (numberString == null || numberString.isEmpty()) {
+		if (numberString.isEmpty()) {
 			sum = 0;
-		} else {
+		} else if (splitNumberString.length == 1) {
 			sum = Integer.parseInt(numberString);
+		}else {
+			sum=Integer.parseInt(splitNumberString[0]) + Integer.parseInt(splitNumberString[1]);
 		}
 		return sum;
 	}

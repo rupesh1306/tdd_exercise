@@ -29,7 +29,7 @@ public class StringCalculatorTest {
 	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_emptyInput() throws IllegalArgumentException {
+	public void testAdd_emptyInput() {
 		assertEquals(0, stringCalculator.add(""));
 	}
 
@@ -39,7 +39,7 @@ public class StringCalculatorTest {
 	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_singleInput() throws IllegalArgumentException {
+	public void testAdd_singleInput() {
 		assertEquals(1, stringCalculator.add("1"));
 	}
 
@@ -49,58 +49,54 @@ public class StringCalculatorTest {
 	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_twoNumberCommaSaperatedInput() throws IllegalArgumentException {
+	public void testAdd_twoNumberCommaSaperatedInput() {
 		assertEquals(4, stringCalculator.add("1,3"));
 	}
 
 	/**
 	 * This will test add utility with N number string.
 	 * 
-	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_nNumbersCommaSaperatedInput() throws IllegalArgumentException {
+	public void testAdd_nNumbersCommaSaperatedInput() {
 		assertEquals(9, stringCalculator.add("1,3,5"));
 	}
 
 	/**
 	 * This will test add utility with two number string.
 	 * 
-	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_nNumbersCommaAndLineCharacterSaperatedInput() throws IllegalArgumentException {
+	public void testAdd_nNumbersCommaAndLineCharacterSaperatedInput() {
 		assertEquals(9, stringCalculator.add("1\n3,5"));
 	}
 
 	/**
 	 * This will test add utility with //[delimiter]\n[numbers…].
 	 * 
-	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_nNumbersWithDefaultInput() throws IllegalArgumentException {
+	public void testAdd_nNumbersWithDefaultInput() {
 		assertEquals(9, stringCalculator.add("//;\n1;3;5"));
 	}
 
 	/**
 	 * This will test add utility with negative numbers.
 	 * 
-	 * @throws Exception
 	 */
 	@Test(expected = IllegalArgumentException.class)
-	public void testAdd_negativeNumbersInput() throws IllegalArgumentException {
+	public void testAdd_negativeNumbersInput() {
 		assertEquals(9, stringCalculator.add("//;\n1;-3;5"));
 	}
-	
+
 	/**
-	 * This will test add utility with test input more than thousand and would ignore it.
+	 * This will test add utility with test input more than thousand and would
+	 * ignore it.
 	 * 
-	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_nNumbersWithWithGreaterThanThousandInput() throws IllegalArgumentException {
+	public void testAdd_nNumbersWithWithGreaterThanThousandInput() {
 		assertEquals(8, stringCalculator.add("//;\n1001;3;5"));
 	}
-	
+
 }

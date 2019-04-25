@@ -19,9 +19,8 @@ public class StringCalculator {
 	 * @param number-
 	 *            String input.
 	 * @return sum of integer
-	 * @throws Exception
 	 */
-	public int add(final String numberString) throws IllegalArgumentException {
+	public int add(final String numberString) {
 
 		String delemeter = findDelimeter(numberString);
 		String numberStringInput = removeFirstLine(numberString);
@@ -72,9 +71,8 @@ public class StringCalculator {
 	 * @param numbersString
 	 *            - array of number string
 	 * @return sum
-	 * @throws Exception
 	 */
-	private int getSum(String[] numbersString) throws IllegalArgumentException {
+	private int getSum(String[] numbersString) {
 		List<String> numberList = Arrays.asList(numbersString);
 		this.validateNegativeNumbers(numberList);
 		int sum = 0;
@@ -86,9 +84,8 @@ public class StringCalculator {
 	 * Throw exception for negative numbers.
 	 * 
 	 * @param negativeNumbers
-	 * @throws Exceptions
 	 */
-	private void throwException(List<String> negativeNumbers) throws IllegalArgumentException {
+	private void throwException(List<String> negativeNumbers) {
 		throw new IllegalArgumentException("Negative numbers not allowed, check input: " + negativeNumbers);
 	}
 

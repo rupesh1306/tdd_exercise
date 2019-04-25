@@ -1,5 +1,9 @@
 package com.tdd.utility;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * This class is responsible for adding two numbers.
  * 
@@ -71,31 +75,11 @@ public class StringCalculator {
 	 * @throws Exception
 	 */
 	private int getSum(String[] numbersString) throws IllegalArgumentException {
+		List<String> numberList = Arrays.asList(numbersString);
+		this.validateNegativeNumbers(numberList);
 		int sum = 0;
-		StringBuilder negativeNumbers = new StringBuilder();
-		for (String numberString : numbersString) {
-			int parsedInt = Integer.parseInt(numberString);
-			if (checkNegativeNumber(parsedInt)) {
-				negativeNumbers.append(parsedInt + " ");
-			} else {
-				//Ignoring numbers which are greater than 1000
-				sum += parsedInt <= 1000 ? parsedInt: 0;
-			}
-		}
-		if (negativeNumbers.length() > 0) {
-			throwException(negativeNumbers);
-		}
+		sum = numberList.stream().mapToInt(num -> (Integer.parseInt(num) <= 1000 ? Integer.parseInt(num) : 0)).sum();
 		return sum;
-	}
-
-	/**
-	 * Check negative if number is negative
-	 * 
-	 * @param number
-	 * @return boolean flag
-	 */
-	private boolean checkNegativeNumber(int number) {
-		return number < 0;
 	}
 
 	/**
@@ -104,8 +88,15 @@ public class StringCalculator {
 	 * @param negativeNumbers
 	 * @throws Exceptions
 	 */
-	private void throwException(StringBuilder negativeNumbers) throws IllegalArgumentException {
-		throw new IllegalArgumentException("Negative numbers not allowed, check input: " + negativeNumbers.toString());
+	private void throwException(List<String> negativeNumbers) throws IllegalArgumentException {
+		throw new IllegalArgumentException("Negative numbers not allowed, check input: " + negativeNumbers);
 	}
 
+	private void validateNegativeNumbers(List<String> numberList) {
+		List<String> negativeNumberList = numberList.stream().filter(number -> (Integer.parseInt(number) < 0))
+				.collect(Collectors.toList());
+		if (negativeNumberList != null && !negativeNumberList.isEmpty()) {
+			throwException(negativeNumberList);
+		}
+	}
 }

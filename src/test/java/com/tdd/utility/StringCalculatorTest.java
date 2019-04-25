@@ -35,7 +35,6 @@ public class StringCalculatorTest {
 	 */
 	@Test
 	public void testAdd_singleInput() {
-		
 		assertEquals(1,stringCalculator.add("1"));
 	}
 }

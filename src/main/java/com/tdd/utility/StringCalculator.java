@@ -17,7 +17,13 @@ public class StringCalculator {
 	 * @return sum of integer
 	 */
 	public int add(final String numberString) {
-		return 0;
+		int sum = -1;
+		if (numberString == null || numberString.isEmpty()) {
+			sum = 0;
+		} else {
+			sum = Integer.parseInt(numberString);
+		}
+		return sum;
 	}
 
 }

@@ -7,66 +7,89 @@ import org.junit.Test;
 
 /**
  * This is test class for String calculator with various scenarious.
+ * 
  * @author Rupesh
  *
  */
 public class StringCalculatorTest {
-	
+
 	private StringCalculator stringCalculator;
-	
+
 	/**
 	 * This method is to initialize test class.
 	 */
 	@Before
 	public void init() {
-		stringCalculator=new StringCalculator();
+		stringCalculator = new StringCalculator();
 	}
-	
+
 	/**
-	 *This will test add utility with empty number string. 
+	 * This will test add utility with empty number string.
+	 * 
+	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_emptyInput() {
-		assertEquals(0,stringCalculator.add(""));
+	public void testAdd_emptyInput() throws IllegalArgumentException {
+		assertEquals(0, stringCalculator.add(""));
 	}
-	
+
 	/**
-	 *This will test add utility with single number string. 
+	 * This will test add utility with single number string.
+	 * 
+	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_singleInput() {
-		assertEquals(1,stringCalculator.add("1"));
+	public void testAdd_singleInput() throws IllegalArgumentException {
+		assertEquals(1, stringCalculator.add("1"));
 	}
-	
+
 	/**
-	 *This will test add utility with two number string. 
+	 * This will test add utility with two number string.
+	 * 
+	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_twoNumberCommaSaperatedInput() {
-		assertEquals(4,stringCalculator.add("1,3"));
+	public void testAdd_twoNumberCommaSaperatedInput() throws IllegalArgumentException {
+		assertEquals(4, stringCalculator.add("1,3"));
 	}
-	
+
 	/**
-	 *This will test add utility with N number string. 
+	 * This will test add utility with N number string.
+	 * 
+	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_nNumbersCommaSaperatedInput() {
-		assertEquals(9,stringCalculator.add("1,3,5"));
+	public void testAdd_nNumbersCommaSaperatedInput() throws IllegalArgumentException {
+		assertEquals(9, stringCalculator.add("1,3,5"));
 	}
-	
+
 	/**
-	 *This will test add utility with two number string. 
+	 * This will test add utility with two number string.
+	 * 
+	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_nNumbersCommaAndLineCharacterSaperatedInput() {
-		assertEquals(9,stringCalculator.add("1\n3,5"));
+	public void testAdd_nNumbersCommaAndLineCharacterSaperatedInput() throws IllegalArgumentException {
+		assertEquals(9, stringCalculator.add("1\n3,5"));
 	}
-	
+
 	/**
-	 *This will test add utility with //[delimiter]\n[numbers…]. 
+	 * This will test add utility with //[delimiter]\n[numbers…].
+	 * 
+	 * @throws Exception
 	 */
 	@Test
-	public void testAdd_nNumbersWithDefaultInput() {
-		assertEquals(9,stringCalculator.add("//;\n1;3;5"));
+	public void testAdd_nNumbersWithDefaultInput() throws IllegalArgumentException {
+		assertEquals(9, stringCalculator.add("//;\n1;3;5"));
+	}
+
+	/**
+	 * This will test add utility with negative numbers.
+	 * 
+	 * @throws Exception
+	 */
+	@Test(expected = IllegalArgumentException.class)
+	public void testAdd_negativeNumbersInput() throws Exception {
+		assertEquals(9, stringCalculator.add("//;\n1;-3;5"));
 	}
 }
